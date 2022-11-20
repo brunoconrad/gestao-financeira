@@ -13,7 +13,7 @@ import br.com.gestorfinanceiro.model.TipoPagamento;
 import br.com.gestorfinanceiro.repository.TipoPagamentoRepository;
 
 @Service
-public class TipoPagamentoServiceImpl implements ITipoPagamentoService {
+public class TipoPagamentoServiceImpl implements TipoPagamentoService {
 
 	@Autowired
 	TipoPagamentoRepository repository;

@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import br.com.gestorfinanceiro.dto.UsuarioDTO;
 
-public interface IUsuarioService {
+public interface UsuarioService {
 
 	List<UsuarioDTO> findAllUsuarios();
 

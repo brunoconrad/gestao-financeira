@@ -13,7 +13,7 @@ import br.com.gestorfinanceiro.model.Usuario;
 import br.com.gestorfinanceiro.repository.UsuarioRepository;
 
 @Service
-public class UsuarioServiceImpl implements IUsuarioService {
+public class UsuarioServiceImpl implements UsuarioService {
 
 	@Autowired
 	UsuarioRepository repository;

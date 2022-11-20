@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.gestorfinanceiro.dto.UsuarioDTO;
-import br.com.gestorfinanceiro.service.IUsuarioService;
+import br.com.gestorfinanceiro.service.UsuarioService;
 
 @RestController
 @RequestMapping("/api/usuarios")
 public class UsuarioController {
 
 	@Autowired
-	IUsuarioService service;
+	UsuarioService service;
 
 	@GetMapping
 	public ResponseEntity<List<UsuarioDTO>> getUsuarios() {

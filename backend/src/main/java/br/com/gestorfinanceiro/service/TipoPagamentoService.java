@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import br.com.gestorfinanceiro.dto.TipoPagamentoDTO;
 
-public interface ITipoPagamentoService {
+public interface TipoPagamentoService {
 
 	List<TipoPagamentoDTO> findAllTipoPagamento();
 
