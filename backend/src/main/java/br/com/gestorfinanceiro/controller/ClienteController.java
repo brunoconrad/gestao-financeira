@@ -27,7 +27,7 @@ public class ClienteController {
 
 	@GetMapping
 	public ResponseEntity<List<ClienteDTO>> getClientes() {
-		return new ResponseEntity<>(service.findAllCliente(), HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(service.findAllCliente(), HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/{id}")
@@ -36,7 +36,7 @@ public class ClienteController {
 		Optional<ClienteDTO> cliente = service.findClienteById(id);
 
 		if (cliente.isPresent()) {
-			return new ResponseEntity<>(cliente.get(), HttpStatus.FOUND);
+			return new ResponseEntity<>(cliente.get(), HttpStatus.OK);
 		}
 
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);

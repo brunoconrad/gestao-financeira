@@ -15,35 +15,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.gestorfinanceiro.dto.FornecedorDTO;
-import br.com.gestorfinanceiro.service.FornecedorService;
+import br.com.gestorfinanceiro.dto.TipoPagamentoDTO;
+import br.com.gestorfinanceiro.service.TipoPagamentoService;
 
 @RestController
-@RequestMapping("/api/fornecedores")
-public class FornecedorController {
+@RequestMapping("/api/tipoPagamento")
+public class TipoPagamentoController {
 
 	@Autowired
-	FornecedorService service;
+	TipoPagamentoService service;
 
 	@GetMapping
-	public ResponseEntity<List<FornecedorDTO>> getFornecedores() {
-		return new ResponseEntity<>(service.findAllFornecedores(), HttpStatus.OK);
+	public ResponseEntity<List<TipoPagamentoDTO>> getTiposPagamentos() {
+		return new ResponseEntity<>(service.findAllTipoPagamento(), HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<FornecedorDTO> getFornecedorById(@PathVariable Integer id) {
+	public ResponseEntity<TipoPagamentoDTO> getTipoPagamentoById(@PathVariable Integer id) {
 
-		Optional<FornecedorDTO> fornecedor = service.findFornecedorById(id);
+		Optional<TipoPagamentoDTO> tipo = service.findTipoPagamentoById(id);
 
-		if (fornecedor.isPresent()) {
-			return new ResponseEntity<>(fornecedor.get(), HttpStatus.OK);
+		if (tipo.isPresent()) {
+			return new ResponseEntity<>(tipo.get(), HttpStatus.OK);
 		}
 
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
 	@PostMapping
-	public ResponseEntity<FornecedorDTO> saveFornecedor(@RequestBody @Valid FornecedorDTO fornecedor) {
-		return new ResponseEntity<>(service.saveFornecedor(fornecedor), HttpStatus.CREATED);
+	public ResponseEntity<TipoPagamentoDTO> saveTipoPagamento(@RequestBody @Valid TipoPagamentoDTO tipo) {
+		return new ResponseEntity<>(service.saveTipoPagamento(tipo), HttpStatus.CREATED);
 	}
+	
+	
+
 }

@@ -27,7 +27,7 @@ public class UsuarioController {
 
 	@GetMapping
 	public ResponseEntity<List<UsuarioDTO>> getUsuarios() {
-		return new ResponseEntity<>(service.findAllUsuarios(), HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(service.findAllUsuarios(), HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/{id}")
@@ -35,7 +35,7 @@ public class UsuarioController {
 		Optional<UsuarioDTO> usuario = service.findUsuarioById(id);
 
 		if (usuario.isPresent()) {
-			return new ResponseEntity<>(usuario.get(), HttpStatus.FOUND);
+			return new ResponseEntity<>(usuario.get(), HttpStatus.OK);
 		}
 
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
