@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Grid, LinearProgress } from '@mui/material';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { BASE_URL } from '../utils/request';
@@ -14,16 +14,22 @@ import { Usuario } from '../models/usuario';
 const CtrlUsuario = () => {
 
     const [listagem, setListagem] = useState<Usuario[]>([]);
+    const [carregando, setCarregando] = useState(false);
 
     useEffect(() => {
+        setCarregando(true);
         axios.get(`${BASE_URL}/api/usuarios`).then(response => {
             setListagem(response.data);
         });
+        setCarregando(false);
     }, []);
 
     return (
         <Grid container>
             <Grid item xs={12}>
+                {carregando &&
+                    <LinearProgress />
+                }
                 <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
