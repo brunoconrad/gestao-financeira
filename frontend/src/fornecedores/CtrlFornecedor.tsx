@@ -2,7 +2,7 @@ import { Grid, LinearProgress } from '@mui/material';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { BASE_URL } from '../utils/request';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid, GridColDef, GridToolbar } from '@mui/x-data-grid';
 
 const CtrlFornecedor = () => {
 
@@ -37,7 +37,9 @@ const CtrlFornecedor = () => {
                 <DataGrid
                     autoHeight
                     rows={listagem}
+                    components={{ Toolbar: GridToolbar }}
                     disableColumnMenu
+                    disableSelectionOnClick
                     getRowId={(row) => row.idFornecedor}
                     columns={columns}
                 />
