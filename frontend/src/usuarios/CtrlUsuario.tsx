@@ -18,12 +18,16 @@ const CtrlUsuario = () => {
         { field: 'telefone', headerName: 'TELEFONE', flex: 1 }
     ];
 
-    useEffect(() => {
+    async function buscaUsuarios() {
         setCarregando(true);
         axios.get(`${BASE_URL}/api/usuarios`).then(response => {
             setListagem(response.data);
         });
         setCarregando(false);
+    }
+
+    useEffect(() => {
+        buscaUsuarios();
     }, []);
 
     return (
