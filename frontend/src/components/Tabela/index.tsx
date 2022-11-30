@@ -18,7 +18,7 @@ export function TabelaUtil({ listagem, titleAdd, openModal, colunas }: Table) {
             components={{
                 Toolbar: () => {
                     return (
-                        <GridToolbarContainer title='Fornecedores' >
+                        <GridToolbarContainer>
                             <GridToolbarQuickFilter />
                             <GridToolbarExport />
                             <IconButton
